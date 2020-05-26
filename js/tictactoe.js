@@ -240,9 +240,9 @@ function checkForWinCon() {
     checkWinCon3(info,squareArray);
     checkWinCon4(info,squareArray);
     checkWinCon5(info,squareArray);
-    checkWinCon5(info,squareArray);
     checkWinCon6(info,squareArray);
-    checWinCon8(info,squareArray);
+    checkWinCon7(info,squareArray);
+    checkWinCon8(info,squareArray);
     //console.log("NEW CHECK: "+document.getElementbyId('gameMsg').innerHTML);
     check4Tie();
 }
@@ -263,9 +263,9 @@ function check4Tie() {
 
 //whenever a win is detectedd, the corresponding function will
 //call this function to produce the following winning process for the game
-function winner(winDectected, winCon) {
+function winner(winDetected, winCon) {
     if (winDetected=="win") {
-        var showme = winDectected;
+        var showme = winDetected;
         var activePlayer = document.getElementById('showPlayer').innerHTML;
         var txt2 = "That's three in a row, "+activePlayer+" wins!";
         writeMsg(txt2);
@@ -377,7 +377,7 @@ function blink() {
 //-------------------------------------------------------------
 //checking for wincon squares 012
 function checkWinCon1(info,squareArray) {
-    var winDectected = "on";
+    var winDetected = "on";
     var winCon1 = [0,1,2];
     //iterate through the growing array during
     //gametime searching for the existence of 
@@ -398,18 +398,18 @@ function checkWinCon1(info,squareArray) {
     //only triggers if there's a match for indexes 0,1,and 2
     if (match0Avatar != undefined && match1Avatar != undefined && match2Avatar != undefined) {
         if (match0Avatar == match1Avatar && match0Avatar == match2Avatar) {
-            winDectected = "win"; //this flag will pass when a win has been detected
-            winner(winDectected,winCon1);
+            winDetected = "win"; //this flag will pass when a win has been detected
+            winner(winDetected,winCon1);
             return;
         }
     }
-    winner(winDectected,winCon1); //winCon1 is the array of win combo
+    winner(winDetected,winCon1); //winCon1 is the array of win combo
 }
 
 //checking for wincon squares 345 
 function checkWinCon2(info,squareArray) {
     var winCon2 = [3,4,5];
-    var winDectected = "on";
+    var winDetected = "on";
     for (var i in info) {
         if (info[i].charAt(0) =="3") {
             var match3Avatar = info[i].charAt(1);
@@ -423,16 +423,16 @@ function checkWinCon2(info,squareArray) {
     }
     if (match3Avatar != undefined && match4Avatar != undefined && match5Avatar !=undefined) {
         if (match3Avatar == match4Avatar && match3Avatar == match5Avatar) {
-            winDectected = "win";
+            winDetected = "win";
         }
     }
-    winner(winDectected, winCon2);
+    winner(winDetected, winCon2);
 }
 
 //check for wincon squares 678
 function checkWinCon3(info,squareArray) {
     var winCon3 = [6,7,8];
-    var winDectected = "on";
+    var winDetected = "on";
     for (var i in info) {
         if (info[i].charAt(0) == "6") {
             var match6Avatar = info[i].charAt(1);
@@ -449,22 +449,22 @@ function checkWinCon3(info,squareArray) {
             winDetected = "win";
         }
     }
-    winner(winDectected, winCon3);
+    winner(winDetected, winCon3);
     
 }
 
 //checking for squares 036
-function checkWin4Con4(info,squareArray) {
+function checkWinCon4(info,squareArray) {
     var winCon4 = [0, 3 ,6];
     var winDetected = "on";
     for (var i in info) {
-        if (info[1].charAt(0) == "0") {
+        if (info[i].charAt(0) == "0") {
             var match0Avatar = info[i].charAt(1);
         }
-        if (info[1].charAt(0) == "3") {
+        if (info[i].charAt(0) == "3") {
             var match3Avatar = info[i].charAt(1);
         }
-        if (info[1].charAt(0) == "6") {
+        if (info[i].charAt(0) == "6") {
             var match6Avatar = info[i].charAt(1);
         }
     }
@@ -479,12 +479,12 @@ function checkWin4Con4(info,squareArray) {
 //checking for wincon squares 147
 function checkWinCon5(info,squareArray){
     var winCon5 = [1,4,7];
-    var winDectected = "on";
+    var winDetected = "on";
     for (var i in info) {
         if (info[i].charAt(0)== "1") {
             var match1Avatar = info[i].charAt(1);
         }
-        if (info[1].charAt(0)=="4") {
+        if (info[i].charAt(0)=="4") {
             var match4Avatar= info[i].charAt(1);
         }
         if(info[i].charAt(0)=="7") {
@@ -493,16 +493,16 @@ function checkWinCon5(info,squareArray){
     }
     if (match1Avatar != undefined && match4Avatar != undefined && match7Avatar != undefined) {
         if (match1Avatar == match4Avatar && match1Avatar == match7Avatar) {
-            winDectected = "win";
+            winDetected = "win";
         }
     }
-    winner(winDectected,winCon5);
+    winner(winDetected,winCon5);
 }
 
 //wincon squares 258
 function checkWinCon6(info,squareArray) {
-    var winCons6 = [2,5,8];
-    var winDectected = "on";
+    var winCon6 = [2,5,8];
+    var winDetected = "on";
     for (var i in info) {
         if (info[i].charAt(0)=="2") {
             var match2Avatar = info[i].charAt(1);
@@ -516,16 +516,16 @@ function checkWinCon6(info,squareArray) {
     }
     if (match2Avatar != undefined && match5Avatar != undefined && match8Avatar != undefined) {
         if (match2Avatar == match5Avatar && match2Avatar == match8Avatar) {
-            winDectected = "win";
+            winDetected = "win";
         }
     }
-    winner(winDectected,winCon6);
+    winner(winDetected,winCon6);
 }
 
 //checking for wincon squares 642
 function checkWinCon7(info,squareArray) {
     var winCon7 = [6,4,2];
-    var winDectected = "on";
+    var winDetected = "on";
     for (var i in info) {
         if (info[i].charAt(0) =="6") {
             var match6Avatar = info[i].charAt(1);
@@ -539,16 +539,16 @@ function checkWinCon7(info,squareArray) {
     }
     if (match6Avatar != undefined && match4Avatar != undefined && match2Avatar != undefined) {
         if (match6Avatar == match4Avatar&& match6Avatar == match2Avatar) {
-            winDectected = "win";
+            winDetected = "win";
         }
     }
-    winner(winDectected,winCon7);
+    winner(winDetected,winCon7);
 }
 
 //checking for wincon squares 048
 function checkWinCon8(info,squareArray) {
     var winCon8 = [0,4,8];
-    var winDectected = "on";
+    var winDetected = "on";
     for(var i in info) {
         if(info[i].charAt(0) =="0") {
             var match0Avatar = info[i].charAt(1);
@@ -557,22 +557,22 @@ function checkWinCon8(info,squareArray) {
             var match4Avatar = info[i].charAt(1);
         }
         if (info[i].charAt(0)=="8") {
-            var match4Avatar = info[i].charAt(1);
+            var match8Avatar = info[i].charAt(1);
         }
     }
     if (match0Avatar !=undefined && match4Avatar != undefined && match8Avatar != undefined) {
         if(match0Avatar == match4Avatar && match0Avatar == match8Avatar) {
-            winDectected = "win";
+            winDetected = "win";
         }
     }
-    winner(winDectected,winCon8);
+    winner(winDetected,winCon8);
 }
 
 //---------------------------------------------------------------------------------------
 //These block of functions are for each click event of their corresponding square element
 //----------------------------------------------------------------------------------------
 //square1
-function square1animate() {
+function square1Animate() {
     var activePlayer = document.getElementById('showPlayer').innerHTML;
     if (activePlayer != "Game Stopped") {// if game has not yet start started prevent avatar placement
         var square = "0"; // identify the square selected
@@ -596,7 +596,7 @@ function square1animate() {
     }
 }
 //square 2
-function square2animate() {
+function square2Animate() {
     var activePlayer = document.getElementById('showPlayer').innerHTML;
     if (activePlayer != "Game Stopped") {// if game has not yet start started prevent avatar placement
         var square = "1"; // identify the square selected
@@ -620,7 +620,7 @@ function square2animate() {
     }
 }
 //square3
-function square3animate() {
+function square3Animate() {
     var activePlayer = document.getElementById('showPlayer').innerHTML;
     if (activePlayer != "Game Stopped") {// if game has not yet start started prevent avatar placement
         var square = "2"; // identify the square selected
@@ -644,7 +644,7 @@ function square3animate() {
     }
 }
 //square 4
-function square4animate() {
+function square4Animate() {
     var activePlayer = document.getElementById('showPlayer').innerHTML;
     if (activePlayer != "Game Stopped") {// if game has not yet start started prevent avatar placement
         var square = "3"; // identify the square selected
@@ -668,7 +668,7 @@ function square4animate() {
     }
 }
 //square 5
-function square5animate() {
+function square5Animate() {
     var activePlayer = document.getElementById('showPlayer').innerHTML;
     if (activePlayer != "Game Stopped") {// if game has not yet start started prevent avatar placement
         var square = "4"; // identify the square selected
@@ -692,7 +692,7 @@ function square5animate() {
     }
 }
 //square 6
-function square6animate() {
+function square6Animate() {
     var activePlayer = document.getElementById('showPlayer').innerHTML;
     if (activePlayer != "Game Stopped") {// if game has not yet start started prevent avatar placement
         var square = "5"; // identify the square selected
@@ -716,7 +716,7 @@ function square6animate() {
     }
 }
 //square 7
-function square7animate() {
+function square7Animate() {
     var activePlayer = document.getElementById('showPlayer').innerHTML;
     if (activePlayer != "Game Stopped") {// if game has not yet start started prevent avatar placement
         var square = "6"; // identify the square selected
@@ -740,7 +740,7 @@ function square7animate() {
     }
 }
 //square 8
-function square8animate() {
+function square8Animate() {
     var activePlayer = document.getElementById('showPlayer').innerHTML;
     if (activePlayer != "Game Stopped") {// if game has not yet start started prevent avatar placement
         var square = "7"; // identify the square selected
@@ -764,7 +764,7 @@ function square8animate() {
     }
 }
 //square 9
-function square9animate() {
+function square9Animate() {
     var activePlayer = document.getElementById('showPlayer').innerHTML;
     if (activePlayer != "Game Stopped") {// if game has not yet start started prevent avatar placement
         var square = "8"; // identify the square selected
@@ -793,6 +793,6 @@ function animateO(selected) {
     selected.style.transform = (selected.style.transform == "translateY(0%)" || null) ? "translateY(0%)" :"translateY(0%)";
 }
 //this function will perform the animation for the X avatar
-function animateO(selected) {
+function animateX(selected) {
     selected.style.transform = (selected.style.transform == "translateY(-100%)" || null) ? "translateY(0%)" :"translateY(-100%)";
 }
